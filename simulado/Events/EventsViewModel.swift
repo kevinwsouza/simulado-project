@@ -11,7 +11,7 @@ class EventsViewModel {
     
     let coordinator: EventsCoordinator
     let worker: EventsWorker
-    
+    var eventsList: [Event] = []
     
     //MARK: - init
     
@@ -25,8 +25,9 @@ class EventsViewModel {
     func getEvents() {
         
         worker.getEvents { (events) in
-            print(events)
-            
+            self.eventsList = events
+//            print(events)
+//            onComplete(events.count > 0 ? true : false)
         }
     }
 }

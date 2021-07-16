@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-class EventsTableView: UIView {
+class EventsTableViewCell: UITableViewCell {
   
-    
+
     private var viewCell: UIView = {
         var view = UIView()
         view.backgroundColor = UIColor(red: 1, green: 1, blue: 0.2, alpha: 1)
@@ -41,17 +41,7 @@ class EventsTableView: UIView {
         label.textColor = .black
         return label
     }()
-//MARK: - init
-    init() {
-        super.init(frame: CGRect.zero)
-        backgroundColor = UIColor(red: 1, green: 1, blue: 0.2, alpha: 1)
-        setupContrains()
-    }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
 //MARK: - setup Constrains
 
 func setupContrains() {
@@ -102,3 +92,15 @@ func setupContrains() {
     }
 }
 
+//MARK: - Create Cells
+
+extension EventsTableViewCell {
+    
+    func createCells(with events: Event) {
+        labelTitle.text = events.title
+        labelDate.text = "\(events.date)"
+        labelPrice.text = "\(events.price ?? 0)"
+        labelDate.text = "\(events.date)"
+        labelLocal.text = "Teste"
+    }
+}

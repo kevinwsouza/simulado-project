@@ -12,8 +12,8 @@ struct Events: Codable {
 }
 
 struct Event: Codable {
-    var people: [People?]
-    var date: Int?
+    //var people: [People?]
+    var date: Int64
     var descripition: String?
     var image: String?
     var longitude: Double?
@@ -23,9 +23,9 @@ struct Event: Codable {
     var id: String?
 }
 
-struct People: Codable {
-    var id: String?
-    var eventId: String?
-    var name: String?
-    var picture: String?
-}
+//struct People: Codable {
+//    var id: String?
+//    var eventId: String?
+//    var name: String?
+//    var picture: String?
+//}
