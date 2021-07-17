@@ -31,7 +31,6 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     private var eventsTableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .white
-        tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
@@ -53,7 +52,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EventsTableViewCell
-            cell.setupContrains()
+            cell.setup()
             let indexData = viewModel.eventsList[indexPath.row]
             cell.createCells(with: indexData)
             return cell
@@ -62,11 +61,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return viewModel.eventsList.count
         }
-        
-        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 100
-        }
-}
+    }
 //MARK: - life cicle
 
 extension EventsViewController {
@@ -85,10 +80,11 @@ extension EventsViewController {
         ]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         setup()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        viewModel.getEvents()
+        viewModel.getEvents(onComplete: {
+            DispatchQueue.main.async {
+                self.eventsTableView.reloadData()
+            }
+        })
     }
 }
 
@@ -100,32 +96,14 @@ extension EventsViewController: ViewCodable {
     }
     
     func constraintsSetup() {
-        //        view.addSubview(rootView)
-        //
-        //        rootView.translatesAutoresizingMaskIntoConstraints = false
-        //
-        //        rootView.topAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        //        rootView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        //        rootView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        //        rootView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
-        //        rootView.addSubview(titleEvents)
-        //
-        //        titleEvents.translatesAutoresizingMaskIntoConstraints = false
-        //
-        //        titleEvents.topAnchor.constraint(equalTo: rootView.layoutMarginsGuide.topAnchor, constant: 20).isActive = true
-        //        titleEvents.leadingAnchor.constraint(equalTo: rootView.leadingAnchor, constant: 10).isActive = true
-        //        titleEvents.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -10).isActive = true
-        
-        
         view.addSubview(eventsTableView)
         
         eventsTableView.translatesAutoresizingMaskIntoConstraints = false
         
-        eventsTableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20).isActive = true
-        eventsTableView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
-        eventsTableView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).isActive = true
-        eventsTableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor).isActive = true
+        eventsTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        eventsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        eventsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        eventsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 }
 

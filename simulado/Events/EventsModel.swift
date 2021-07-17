@@ -13,6 +13,7 @@ struct Events: Codable {
 
 struct Event: Codable {
     //var people: [People?]
+    var formattedDate: String?
     var date: Int64
     var descripition: String?
     var image: String?

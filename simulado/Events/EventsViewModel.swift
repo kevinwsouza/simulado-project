@@ -12,22 +12,33 @@ class EventsViewModel {
     let coordinator: EventsCoordinator
     let worker: EventsWorker
     var eventsList: [Event] = []
+    var formattedDate = ""
     
     //MARK: - init
     
-    init(coordinator: Coordinator) {
-        self.coordinator = coordinator as! EventsCoordinator
+    init(coordinator: EventsCoordinator) {
+        self.coordinator = coordinator
         worker = EventsWorker()
     }
     
     //MARK: - GET
     
-    func getEvents() {
+    func getEvents(onComplete: @escaping () -> Void) {
         
         worker.getEvents { (events) in
             self.eventsList = events
-//            print(events)
-//            onComplete(events.count > 0 ? true : false)
+//            for event in self.eventsList {
+//                let dateFormatter = DateFormatter()
+//                dateFormatter.dateFormat = "yyyy-MM-dd"
+//                let date = event.date
+//                let dates = dateFormatter.
+//                dateFormatter.dateFormat = "dd/MM/yy"
+//                if let dates = dates{
+//                    let dateRes = dateFormatter.string(from: dates)
+//                    labelDate.text = dateRes
+//                }
+//            }
+          onComplete()
         }
     }
 }
