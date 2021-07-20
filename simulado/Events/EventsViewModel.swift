@@ -27,18 +27,25 @@ class EventsViewModel {
         
         worker.getEvents { (events) in
             self.eventsList = events
-//            for event in self.eventsList {
-//                let dateFormatter = DateFormatter()
-//                dateFormatter.dateFormat = "yyyy-MM-dd"
-//                let date = event.date
-//                let dates = dateFormatter.
-//                dateFormatter.dateFormat = "dd/MM/yy"
-//                if let dates = dates{
-//                    let dateRes = dateFormatter.string(from: dates)
-//                    labelDate.text = dateRes
-//                }
-//            }
-          onComplete()
+            //            for event in self.eventsList {
+            //                let dateFormatter = DateFormatter()
+            //                dateFormatter.dateFormat = "yyyy-MM-dd"
+            //                let date = event.date
+            //                let dates = dateFormatter.
+            //                dateFormatter.dateFormat = "dd/MM/yy"
+            //                if let dates = dates{
+            //                    let dateRes = dateFormatter.string(from: dates)
+            //                    labelDate.text = dateRes
+            //                }
+            //            }
+            onComplete()
         }
+    }
+    
+    //MARK: - Details Events
+    
+    func didSelect(row: Int) {
+        let details = eventsList[row]
+        coordinator.eventsDetail(events: events)
     }
 }

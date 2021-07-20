@@ -16,12 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
       
-        UINavigationBar.appearance().barTintColor = UIColor(red: 1, green: 1, blue: 0.25, alpha: 1)
+        UINavigationBar.appearance().barTintColor = .lightGray
         
         self.window = UIWindow.init()
         self.window?.bounds = UIScreen.main.bounds
         let navigation = UINavigationController()
-        self.coordinator = LoginViewCoordinator(navigationController: navigation)
+        self.coordinator = EventsCoordinator(navigationController: navigation)
         self.coordinator?.start()
         self.window?.rootViewController = navigation
         self.window?.makeKeyAndVisible()

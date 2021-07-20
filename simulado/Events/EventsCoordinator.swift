@@ -25,4 +25,8 @@ final class EventsCoordinator: Coordinator {
     func popToPrevious() {
         navigationController.popViewController(animated: true)
     }
+    
+    func eventsDetail(events: Event) {
+        EventsCoordinator(navigationController: self.navigationController, events: events).start()
+    }
 }

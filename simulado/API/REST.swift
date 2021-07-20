@@ -26,8 +26,8 @@ class Rest {
     }()
     private static let session = URLSession(configuration: configuration )
     
-//MARK: - load API
-
+    //MARK: - load API
+    
     class func loadAPI(json: Data?, header:Int?,endPointPath: String,HTTPMethod: HTTPMethod , onComplete: @escaping (Data?, Error?) -> Void){
         
         let endPointPath = endPointPath
@@ -47,8 +47,8 @@ class Rest {
             request.addValue("*/*", forHTTPHeaderField: "accept")
             request.httpBody = json
         }
-
-//MARK: - data success
+        
+        //MARK: - data success
         
         let dataTask = session.dataTask(with: request) { (data, response, error) in
             if let response = response as? HTTPURLResponse {

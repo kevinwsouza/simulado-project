@@ -17,16 +17,13 @@
 		14EBC6D3268B965F00235AD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14EBC6D2268B965F00235AD8 /* Assets.xcassets */; };
 		14EBC6D6268B965F00235AD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14EBC6D4268B965F00235AD8 /* LaunchScreen.storyboard */; };
 		14EBC6E3268B9A0200235AD8 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EBC6E2268B9A0200235AD8 /* CoordinatorProtocol.swift */; };
-		14EBC6E7268B9A8200235AD8 /* LoginViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EBC6E6268B9A8200235AD8 /* LoginViewCoordinator.swift */; };
-		14EBC6EA268B9B5D00235AD8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EBC6E9268B9B5D00235AD8 /* LoginViewController.swift */; };
-		14EBC6ED268B9EAA00235AD8 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EBC6EC268B9EAA00235AD8 /* LoginViewModel.swift */; };
-		14EBC6F0268B9EB800235AD8 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EBC6EF268B9EB800235AD8 /* LoginView.swift */; };
 		14EBC6F5268C22F400235AD8 /* ViewCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EBC6F4268C22F400235AD8 /* ViewCodable.swift */; };
 		14EBC6FC268D311400235AD8 /* REST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EBC6FB268D311400235AD8 /* REST.swift */; };
 		14EBC700268E36E300235AD8 /* EventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EBC6FF268E36E300235AD8 /* EventsTableViewCell.swift */; };
 		14EBC703268E36F000235AD8 /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EBC702268E36F000235AD8 /* EventsViewModel.swift */; };
 		14EBC706268E36FA00235AD8 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EBC705268E36FA00235AD8 /* EventsViewController.swift */; };
 		14EBC709268E370900235AD8 /* EventsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EBC708268E370900235AD8 /* EventsCoordinator.swift */; };
+		14EFC1C726A7368300A31968 /* DetailEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EFC1C626A7368300A31968 /* DetailEventView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,16 +39,13 @@
 		14EBC6D5268B965F00235AD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14EBC6D7268B965F00235AD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14EBC6E2268B9A0200235AD8 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
-		14EBC6E6268B9A8200235AD8 /* LoginViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewCoordinator.swift; sourceTree = "<group>"; };
-		14EBC6E9268B9B5D00235AD8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		14EBC6EC268B9EAA00235AD8 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		14EBC6EF268B9EB800235AD8 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		14EBC6F4268C22F400235AD8 /* ViewCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodable.swift; sourceTree = "<group>"; };
 		14EBC6FB268D311400235AD8 /* REST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = REST.swift; sourceTree = "<group>"; };
 		14EBC6FF268E36E300235AD8 /* EventsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewCell.swift; sourceTree = "<group>"; };
 		14EBC702268E36F000235AD8 /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
 		14EBC705268E36FA00235AD8 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		14EBC708268E370900235AD8 /* EventsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCoordinator.swift; sourceTree = "<group>"; };
+		14EFC1C626A7368300A31968 /* DetailEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +65,7 @@
 				14401DD52692CC81009F15B0 /* DetailEventViewController.swift */,
 				14401DD22692CC6C009F15B0 /* DetailEventCoordinator.swift */,
 				14401DD82692CC95009F15B0 /* DetailEventViewModel.swift */,
+				14EFC1C626A7368300A31968 /* DetailEventView.swift */,
 			);
 			path = DetailEvent;
 			sourceTree = "<group>";
@@ -101,39 +96,19 @@
 				14EBC6D4268B965F00235AD8 /* LaunchScreen.storyboard */,
 				14EBC6D7268B965F00235AD8 /* Info.plist */,
 				14EBC6F8268D30E800235AD8 /* API */,
-				14EBC6E1268B99DF00235AD8 /* Coordinator */,
-				14EBC6F3268C22DC00235AD8 /* Components */,
-				14EBC6E5268B9A4A00235AD8 /* Login */,
+				14EBC6E1268B99DF00235AD8 /* protocols */,
 				14EBC6FE268E33AF00235AD8 /* Events */,
 			);
 			path = simulado;
 			sourceTree = "<group>";
 		};
-		14EBC6E1268B99DF00235AD8 /* Coordinator */ = {
+		14EBC6E1268B99DF00235AD8 /* protocols */ = {
 			isa = PBXGroup;
 			children = (
 				14EBC6E2268B9A0200235AD8 /* CoordinatorProtocol.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		14EBC6E5268B9A4A00235AD8 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				14EBC6E9268B9B5D00235AD8 /* LoginViewController.swift */,
-				14EBC6E6268B9A8200235AD8 /* LoginViewCoordinator.swift */,
-				14EBC6EC268B9EAA00235AD8 /* LoginViewModel.swift */,
-				14EBC6EF268B9EB800235AD8 /* LoginView.swift */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		14EBC6F3268C22DC00235AD8 /* Components */ = {
-			isa = PBXGroup;
-			children = (
 				14EBC6F4268C22F400235AD8 /* ViewCodable.swift */,
 			);
-			path = Components;
+			path = protocols;
 			sourceTree = "<group>";
 		};
 		14EBC6F8268D30E800235AD8 /* API */ = {
@@ -229,20 +204,17 @@
 				14401DD32692CC6D009F15B0 /* DetailEventCoordinator.swift in Sources */,
 				14EBC6CA268B965200235AD8 /* AppDelegate.swift in Sources */,
 				14EBC700268E36E300235AD8 /* EventsTableViewCell.swift in Sources */,
+				14EFC1C726A7368300A31968 /* DetailEventView.swift in Sources */,
 				14EBC6F5268C22F400235AD8 /* ViewCodable.swift in Sources */,
 				14401DD62692CC81009F15B0 /* DetailEventViewController.swift in Sources */,
 				14401DCA26927707009F15B0 /* EventsModel.swift in Sources */,
 				14EBC703268E36F000235AD8 /* EventsViewModel.swift in Sources */,
-				14EBC6F0268B9EB800235AD8 /* LoginView.swift in Sources */,
 				14EBC706268E36FA00235AD8 /* EventsViewController.swift in Sources */,
-				14EBC6E7268B9A8200235AD8 /* LoginViewCoordinator.swift in Sources */,
 				14EBC6FC268D311400235AD8 /* REST.swift in Sources */,
-				14EBC6ED268B9EAA00235AD8 /* LoginViewModel.swift in Sources */,
 				14401DD92692CC95009F15B0 /* DetailEventViewModel.swift in Sources */,
 				14EBC709268E370900235AD8 /* EventsCoordinator.swift in Sources */,
 				14401DCE26928550009F15B0 /* EventsWorker.swift in Sources */,
 				14EBC6CC268B965200235AD8 /* SceneDelegate.swift in Sources */,
-				14EBC6EA268B9B5D00235AD8 /* LoginViewController.swift in Sources */,
 				14EBC6E3268B9A0200235AD8 /* CoordinatorProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

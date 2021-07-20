@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+class DetailEventViewModel {
+    
+    let coordinator: DetailEventCoordinator
+    
+    //MARK: - init
+    
+    init(coordinator: DetailEventCoordinator) {
+        self.coordinator = coordinator
+    }
+}

@@ -49,33 +49,37 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }()
     
     //MARK: - TableView config
-        
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EventsTableViewCell
-            cell.setup()
-            let indexData = viewModel.eventsList[indexPath.row]
-            cell.createCells(with: indexData)
-            return cell
-        }
-        
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return viewModel.eventsList.count
-        }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EventsTableViewCell
+        cell.setup()
+        let indexData = viewModel.eventsList[indexPath.row]
+        cell.createCells(with: indexData)
+        return cell
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.eventsList.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelect(row: indexPath.row)
+    }
+}
 //MARK: - life cicle
 
 extension EventsViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
         eventsTableView.delegate = self
         eventsTableView.dataSource = self
         eventsTableView.register(EventsTableViewCell.self, forCellReuseIdentifier: "cell")
+        eventsTableView.backgroundColor = .lightGray
         self.navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.tintColor = .black
         navigationItem.title = "Events"
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,
                               NSAttributedString.Key.font: UIFont(name: "Rockwell", size: 21)!
         ]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
@@ -92,7 +96,7 @@ extension EventsViewController {
 
 extension EventsViewController: ViewCodable {
     func viewSetup() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow"), style: .plain, target: self, action: #selector(popToPrevious))
+        //        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow"), style: .plain, target: self, action: #selector(popToPrevious))
     }
     
     func constraintsSetup() {
@@ -110,10 +114,10 @@ extension EventsViewController: ViewCodable {
 //MARK: - Actions
 extension EventsViewController {
     
-    @objc func popToPrevious(){
-        navigationController?.popViewController(animated: true)
-        
-    }
+    //    @objc func popToPrevious(){
+    //        navigationController?.popViewController(animated: true)
+    //
+    //    }
 }
 
 
