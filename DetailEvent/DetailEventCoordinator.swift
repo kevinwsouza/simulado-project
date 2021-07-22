@@ -11,16 +11,18 @@ import UIKit
 final class DetailEventCoordinator: Coordinator {
     
     var navigationController: UINavigationController
-    var events: Event
+    var event: Event
     
-    init(navigationController: UINavigationController, events: Event) {
+    init(navigationController: UINavigationController, event: Event) {
         self.navigationController = navigationController
-        self.events = events
+        self.event = event
     }
     
     func start() {
-        let viewModel = DetailEventViewModel(coordinator: self)
+        let viewModel = DetailEventViewModel(coordinator: self,event: event)
         let viewController = DetailEventViewController(viewModel: viewModel)
+        
+        navigationController.pushViewController(viewController, animated: true)
     }
     
     func popToPrevious() {

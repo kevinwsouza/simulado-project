@@ -45,7 +45,7 @@ class EventsViewModel {
     //MARK: - Details Events
     
     func didSelect(row: Int) {
-        let details = eventsList[row]
-        coordinator.eventsDetail(events: events)
+        let event = eventsList[row]
+        coordinator.eventsDetail(event: event)
     }
 }

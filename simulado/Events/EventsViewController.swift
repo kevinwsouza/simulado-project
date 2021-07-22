@@ -10,7 +10,6 @@ import UIKit
 
 class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    //var baseView: EventsTableView
     var viewModel: EventsViewModel
     
     
@@ -18,7 +17,6 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     required init(viewModel: EventsViewModel) {
         self.viewModel = viewModel
-        //self.baseView = EventsTableView()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -33,19 +31,6 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.backgroundColor = .white
         tableView.showsVerticalScrollIndicator = false
         return tableView
-    }()
-    private var titleEvents: UILabel = {
-        let label = UILabel()
-        label.text = "EVENTOS"
-        label.textColor = .yellow
-        label.font = UIFont(name: "Rockwell", size: 16)
-        label.textAlignment = .center
-        return label
-    }()
-    private var rootView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .lightGray
-        return view
     }()
     
     //MARK: - TableView config

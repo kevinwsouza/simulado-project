@@ -10,10 +10,17 @@ import Foundation
 class DetailEventViewModel {
     
     let coordinator: DetailEventCoordinator
+    var event: Event
     
     //MARK: - init
     
-    init(coordinator: DetailEventCoordinator) {
+    init(coordinator: DetailEventCoordinator, event: Event) {
         self.coordinator = coordinator
+        self.event = event
     }
+    
+    // MARK: - pop previous
+        func popToPreviousController(){
+            coordinator.popToPrevious()
+        }
 }

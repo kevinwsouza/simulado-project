@@ -15,8 +15,8 @@ class EventsWorker {
         Rest.loadAPI(json: nil, header: nil, endPointPath: endPoint, HTTPMethod: .GET) { (data, error) in
             do {
                 if let data = data {
-                    let event = try JSONDecoder().decode([Event].self, from: data)
-                    onComplete(event)
+                    let events = try JSONDecoder().decode([Event].self, from: data)
+                    onComplete(events)
                 }
                 
             } catch {
@@ -30,8 +30,8 @@ class EventsWorker {
         
         Rest.loadAPI(json: nil, header: nil, endPointPath: endPoint, HTTPMethod: .GET) { (data, error) in
             do {
-                let events = try JSONDecoder().decode(Event.self, from: data!)
-                onComplete(events)
+                let event = try JSONDecoder().decode(Event.self, from: data!)
+                onComplete(event)
                 
             } catch {
                 print(error)

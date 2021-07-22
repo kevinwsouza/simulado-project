@@ -26,7 +26,7 @@ final class EventsCoordinator: Coordinator {
         navigationController.popViewController(animated: true)
     }
     
-    func eventsDetail(events: Event) {
-        EventsCoordinator(navigationController: self.navigationController, events: events).start()
+    func eventsDetail(event: Event) {
+        DetailEventCoordinator(navigationController: self.navigationController, event: event).start()
     }
 }
