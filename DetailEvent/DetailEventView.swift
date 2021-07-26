@@ -16,6 +16,7 @@ class DetailEventView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "Rockwell", size: 16)
+        label.textAlignment = .center
         label.textColor = .white
         return label
     }()
@@ -23,6 +24,7 @@ class DetailEventView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "Rockwell", size: 14)
+        label.numberOfLines = 0
         label.textColor = .white
         return label
     }()
@@ -39,7 +41,8 @@ class DetailEventView: UIView {
         super.init(frame: .zero)
         self.eventDetail = event
         setup()
-        backgroundColor = .green
+        backgroundColor = .gray
+        detailViewInfo()
     }
     
     required init?(coder: NSCoder) {
@@ -58,16 +61,16 @@ extension DetailEventView {
     private func setupContrains() {
         NSLayoutConstraint.activate([
             
-            eventTitle.topAnchor.constraint(equalTo: topAnchor, constant: 12),
+            eventTitle.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 12),
             eventTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             eventTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            eventDescription.topAnchor.constraint(equalTo: eventTitle.bottomAnchor, constant: 20),
+            eventDescription.topAnchor.constraint(equalTo: eventTitle.topAnchor, constant: 50),
             eventDescription.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             eventDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            eventImage.topAnchor.constraint(equalTo: eventTitle.bottomAnchor, constant: 35),
-            eventImage.leadingAnchor.constraint(equalTo: trailingAnchor, constant: -100),
+            eventImage.topAnchor.constraint(equalTo: eventDescription.topAnchor, constant: 200),
+            eventImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 100),
             
         ])
     }
@@ -85,9 +88,9 @@ extension DetailEventView {
 
 extension DetailEventView {
     
-    func detailViewInfo(with events: Event) {
-        eventTitle.text = events.title
-        eventDescription.text = events.descripition
+    func detailViewInfo() {
+        eventTitle.text = "\(eventDetail?.title ?? "")"
+        eventDescription.text = "\(eventDetail?.description ?? "")"
         //eventImage.image = events.image
     }
 }

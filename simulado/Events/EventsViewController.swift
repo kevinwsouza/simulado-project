@@ -50,6 +50,10 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelect(row: indexPath.row)
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        130
+    }
 }
 //MARK: - life cicle
 
@@ -57,10 +61,7 @@ extension EventsViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        eventsTableView.delegate = self
-        eventsTableView.dataSource = self
-        eventsTableView.register(EventsTableViewCell.self, forCellReuseIdentifier: "cell")
-        eventsTableView.backgroundColor = .lightGray
+        eventsTableViewConfig()
         self.navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.tintColor = .black
         navigationItem.title = "Events"
@@ -81,7 +82,7 @@ extension EventsViewController {
 
 extension EventsViewController: ViewCodable {
     func viewSetup() {
-        //        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow"), style: .plain, target: self, action: #selector(popToPrevious))
+        
     }
     
     func constraintsSetup() {
@@ -96,13 +97,16 @@ extension EventsViewController: ViewCodable {
     }
 }
 
-//MARK: - Actions
+//MARK: - events TableView config
+
 extension EventsViewController {
     
-    //    @objc func popToPrevious(){
-    //        navigationController?.popViewController(animated: true)
-    //
-    //    }
+    func eventsTableViewConfig() {
+        eventsTableView.delegate = self
+        eventsTableView.dataSource = self
+        eventsTableView.register(EventsTableViewCell.self, forCellReuseIdentifier: "cell")
+        eventsTableView.backgroundColor = .gray
+        eventsTableView.separatorColor = .black
+    }
 }
-
 

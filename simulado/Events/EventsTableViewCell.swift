@@ -13,7 +13,7 @@ class EventsTableViewCell: UITableViewCell {
     
     private var viewCell: UIView = {
         var view = UIView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .gray
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -62,7 +62,6 @@ class EventsTableViewCell: UITableViewCell {
     
     private func setupContrains() {
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 120),
             
             viewCell.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
             viewCell.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
@@ -82,9 +81,6 @@ class EventsTableViewCell: UITableViewCell {
             imageViewTrailing.bottomAnchor.constraint(equalTo: viewCell.bottomAnchor, constant: -45),
             imageViewTrailing.trailingAnchor.constraint(equalTo: viewCell.trailingAnchor, constant: -20),
             
-            //            labelLocal.topAnchor.constraint(equalTo: topAnchor, constant: 40),
-            //            labelLocal.centerXAnchor.constraint(equalTo: viewCell.centerXAnchor),
-            //            labelLocal.bottomAnchor.constraint(equalTo: viewCell.bottomAnchor, constant: -20),
         ])
     }
     
@@ -95,7 +91,6 @@ class EventsTableViewCell: UITableViewCell {
         viewCell.addSubview(labelDate)
         viewCell.addSubview(labelPrice)
         viewCell.addSubview(imageViewTrailing)
-        //viewCell.addSubview(labelLocal)
     }
 }
 
@@ -108,6 +103,5 @@ extension EventsTableViewCell {
         labelDate.text = "\(events.date)"
         labelPrice.text = "\(events.price ?? 0)"
         labelDate.text = "\(events.date)"
-        //labelLocal.text = "Teste"
     }
 }

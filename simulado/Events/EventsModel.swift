@@ -15,7 +15,7 @@ struct Event: Codable {
     //var people: [People?]
     var formattedDate: String?
     var date: Int64
-    var descripition: String?
+    var description: String?
     var image: String?
     var longitude: Double?
     var latitude: Double?
