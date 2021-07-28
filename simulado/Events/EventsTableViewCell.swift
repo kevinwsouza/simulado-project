@@ -32,7 +32,7 @@ class EventsTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    private var labelDate: UILabel = {
+    public var labelDate: UILabel = {
         var label = UILabel()
         label.font = UIFont(name: "Rockwell", size: 16)
         label.textColor = .white
@@ -102,6 +102,5 @@ extension EventsTableViewCell {
         labelTitle.text = events.title
         labelDate.text = "\(events.date)"
         labelPrice.text = "\(events.price ?? 0)"
-        labelDate.text = "\(events.date)"
     }
 }

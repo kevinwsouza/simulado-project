@@ -36,7 +36,9 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK: - TableView config
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EventsTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? EventsTableViewCell else {
+            return UITableViewCell()
+        }
         cell.setup()
         let indexData = viewModel.eventsList[indexPath.row]
         cell.createCells(with: indexData)

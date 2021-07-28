@@ -24,6 +24,7 @@
 		14EBC706268E36FA00235AD8 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EBC705268E36FA00235AD8 /* EventsViewController.swift */; };
 		14EBC709268E370900235AD8 /* EventsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EBC708268E370900235AD8 /* EventsCoordinator.swift */; };
 		14EFC1C726A7368300A31968 /* DetailEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EFC1C626A7368300A31968 /* DetailEventView.swift */; };
+		14EFC21026B0D69200A31968 /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EFC20F26B0D69200A31968 /* DownloadImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		14EBC705268E36FA00235AD8 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		14EBC708268E370900235AD8 /* EventsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCoordinator.swift; sourceTree = "<group>"; };
 		14EFC1C626A7368300A31968 /* DetailEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventView.swift; sourceTree = "<group>"; };
+		14EFC20F26B0D69200A31968 /* DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			children = (
 				14EBC6E2268B9A0200235AD8 /* CoordinatorProtocol.swift */,
 				14EBC6F4268C22F400235AD8 /* ViewCodable.swift */,
+				14EFC20F26B0D69200A31968 /* DownloadImage.swift */,
 			);
 			path = protocols;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				14401DCA26927707009F15B0 /* EventsModel.swift in Sources */,
 				14EBC703268E36F000235AD8 /* EventsViewModel.swift in Sources */,
 				14EBC706268E36FA00235AD8 /* EventsViewController.swift in Sources */,
+				14EFC21026B0D69200A31968 /* DownloadImage.swift in Sources */,
 				14EBC6FC268D311400235AD8 /* REST.swift in Sources */,
 				14401DD92692CC95009F15B0 /* DetailEventViewModel.swift in Sources */,
 				14EBC709268E370900235AD8 /* EventsCoordinator.swift in Sources */,

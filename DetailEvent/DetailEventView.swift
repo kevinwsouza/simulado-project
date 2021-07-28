@@ -31,7 +31,7 @@ class DetailEventView: UIView {
     public var eventImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
+        //image.frame = CGRect(x: 0, y: 0, width: 20, height: 10)
         return image
     }()
     
@@ -69,8 +69,9 @@ extension DetailEventView {
             eventDescription.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             eventDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            eventImage.topAnchor.constraint(equalTo: eventDescription.topAnchor, constant: 200),
-            eventImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 100),
+            eventImage.topAnchor.constraint(equalTo: eventDescription.topAnchor, constant: 10),
+            eventImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            eventImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
             
         ])
     }
@@ -91,6 +92,6 @@ extension DetailEventView {
     func detailViewInfo() {
         eventTitle.text = "\(eventDetail?.title ?? "")"
         eventDescription.text = "\(eventDetail?.description ?? "")"
-        //eventImage.image = events.image
+        eventImage.downloaded(from: "\(eventDetail?.image ?? "")")
     }
 }

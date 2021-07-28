@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class DetailEventViewModel {
     
@@ -24,3 +25,4 @@ class DetailEventViewModel {
             coordinator.popToPrevious()
         }
 }
+
