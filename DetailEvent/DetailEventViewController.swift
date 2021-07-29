@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class DetailEventViewController: UIViewController {
+class DetailEventViewController: UIViewController, UIScrollViewDelegate {
     
     var viewModel: DetailEventViewModel
     var baseView: DetailEventView
@@ -32,6 +32,9 @@ extension DetailEventViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        baseView.scrollView.delegate = self
+        let height = baseView.scrollView.bounds.height
+        preferredContentSize.height = CGFloat(height)
         navigationController?.navigationBar.tintColor = .white
         navigationItem.title = "Events"
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,
@@ -39,7 +42,6 @@ extension DetailEventViewController {
         ]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         setup()
-        
     }
 }
 

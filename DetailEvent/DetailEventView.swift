@@ -8,10 +8,21 @@
 import Foundation
 import UIKit
 
-class DetailEventView: UIView {
+class DetailEventView: UIView, UIScrollViewDelegate {
     
     var eventDetail: Event?
     
+    public let viewInScroll: UIView = {
+        var view = UIView()
+        view.backgroundColor = .lightGray
+        return view
+    }()
+    public let scrollView: UIScrollView = {
+        var scrollView = UIScrollView()
+        scrollView.alwaysBounceHorizontal = false
+        scrollView.showsHorizontalScrollIndicator = false
+        return scrollView
+    }()
     private var eventTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -31,7 +42,6 @@ class DetailEventView: UIView {
     public var eventImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        //image.frame = CGRect(x: 0, y: 0, width: 20, height: 10)
         return image
     }()
     
@@ -43,6 +53,9 @@ class DetailEventView: UIView {
         setup()
         backgroundColor = .gray
         detailViewInfo()
+//        scrollView.delegate = self
+//        let height = scrollView.bounds.height
+//        preferredContentSize.height = CGFloat(height)
     }
     
     required init?(coder: NSCoder) {
@@ -61,6 +74,17 @@ extension DetailEventView {
     private func setupContrains() {
         NSLayoutConstraint.activate([
             
+            scrollView.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor, constant: 0),
+            scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+            scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+            scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
+
+            viewInScroll.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0),
+            viewInScroll.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0),
+            viewInScroll.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0),
+            viewInScroll.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            viewInScroll.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
             eventTitle.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 12),
             eventTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             eventTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
@@ -71,13 +95,15 @@ extension DetailEventView {
             
             eventImage.topAnchor.constraint(equalTo: eventDescription.topAnchor, constant: 10),
             eventImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            eventImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
-            
+            eventImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            eventImage.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10),
         ])
     }
     
     private func setupBinds() {
         
+        addSubview(scrollView)
+        scrollView.addSubview(viewInScroll)
         addSubview(eventTitle)
         addSubview(eventDescription)
         addSubview(eventImage)
