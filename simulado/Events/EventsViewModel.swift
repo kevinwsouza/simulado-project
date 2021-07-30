@@ -10,41 +10,28 @@ import UIKit
 
 class EventsViewModel {
     
-//    let cellView: EventsTableViewCell
     let coordinator: EventsCoordinator
     let worker: EventsWorker
     var eventsList: [Event] = []
-    var formattedDate = ""
     
-//MARK: - init
+    //MARK: - init
     
     init(coordinator: EventsCoordinator) {
         self.coordinator = coordinator
         worker = EventsWorker()
     }
     
-//MARK: - GET
+    //MARK: - GET
     
     func getEvents(onComplete: @escaping () -> Void) {
         
         worker.getEvents { (events) in
             self.eventsList = events
-//                        for event in self.eventsList {
-//                            let dateFormatter = DateFormatter()
-//                            dateFormatter.dateFormat = "yyyy-MM-dd"
-//                            let date = event.date
-//                            let dates = dateFormatter.date(from: date)
-//                            dateFormatter.dateFormat = "dd/MM/yy"
-//                            if let dates = dates{
-//                                let dateRes = dateFormatter.string(from: dates)
-//                                cellView.labelDate.text = dateRes
-//                            }
-//                        }
             onComplete()
         }
     }
     
-//MARK: - Details Events
+    //MARK: - Details Events
     
     func didSelect(row: Int) {
         let event = eventsList[row]

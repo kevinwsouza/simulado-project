@@ -15,23 +15,11 @@ class EventsWorker {
         Rest.loadAPI(json: nil, header: nil, endPointPath: endPoint, HTTPMethod: .GET) { (data, error) in
             do {
                 if let data = data {
-                    let events = try JSONDecoder().decode([Event].self, from: data)
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .secondsSince1970
+                    let events = try decoder.decode([Event].self, from: data)
                     onComplete(events)
                 }
-                
-            } catch {
-                print(error)
-            }
-        }
-    }
-    
-    func getEventsDetail(id: Int, onComplete: @escaping (Event) -> Void) {
-        let endPoint = "events/\(id)"
-        
-        Rest.loadAPI(json: nil, header: nil, endPointPath: endPoint, HTTPMethod: .GET) { (data, error) in
-            do {
-                let event = try JSONDecoder().decode(Event.self, from: data!)
-                onComplete(event)
                 
             } catch {
                 print(error)

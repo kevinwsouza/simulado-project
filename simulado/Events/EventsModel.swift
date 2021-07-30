@@ -8,13 +8,11 @@
 import Foundation
 
 struct Events: Codable {
-    let events: [Event]
+    var events: [Event]
 }
 
 struct Event: Codable {
-    //var people: [People?]
-    var formattedDate: String?
-    var date: Int
+    var date: Date
     var description: String?
     var image: String?
     var longitude: Double?
@@ -23,10 +21,3 @@ struct Event: Codable {
     var title: String?
     var id: String?
 }
-
-//struct People: Codable {
-//    var id: String?
-//    var eventId: String?
-//    var name: String?
-//    var picture: String?
-//}

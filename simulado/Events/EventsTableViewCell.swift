@@ -11,6 +11,7 @@ import UIKit
 class EventsTableViewCell: UITableViewCell {
     
     
+    
     private var viewCell: UIView = {
         var view = UIView()
         view.backgroundColor = .gray
@@ -19,7 +20,6 @@ class EventsTableViewCell: UITableViewCell {
     }()
     private var labelTitle: UILabel = {
         var label = UILabel()
-        label.font = UIFont(name: "Rockwell", size: 16)
         label.textAlignment = .center
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -27,21 +27,18 @@ class EventsTableViewCell: UITableViewCell {
     }()
     private var labelPrice: UILabel = {
         var label = UILabel()
-        label.font = UIFont(name: "Rockwell", size: 16)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     public var labelDate: UILabel = {
         var label = UILabel()
-        label.font = UIFont(name: "Rockwell", size: 16)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     private var labelLocal: UILabel = {
         var label = UILabel()
-        label.font = UIFont(name: "Rockwell", size: 16)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -77,7 +74,7 @@ class EventsTableViewCell: UITableViewCell {
             
             labelDate.bottomAnchor.constraint(equalTo: viewCell.bottomAnchor, constant: -20),
             labelDate.leadingAnchor.constraint(equalTo: labelPrice.trailingAnchor, constant: 100),
-            
+
             imageViewTrailing.bottomAnchor.constraint(equalTo: viewCell.bottomAnchor, constant: -45),
             imageViewTrailing.trailingAnchor.constraint(equalTo: viewCell.trailingAnchor, constant: -20),
             
@@ -100,7 +97,9 @@ extension EventsTableViewCell {
     
     func createCells(with events: Event) {
         labelTitle.text = events.title
-        labelDate.text = "\(events.date)"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/YY"
+        labelDate.text = "\(dateFormatter.string(from: events.date))"
         labelPrice.text = "\(events.price ?? 0)"
     }
 }

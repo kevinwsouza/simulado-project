@@ -53,9 +53,6 @@ class DetailEventView: UIView, UIScrollViewDelegate {
         setup()
         backgroundColor = .gray
         detailViewInfo()
-//        scrollView.delegate = self
-//        let height = scrollView.bounds.height
-//        preferredContentSize.height = CGFloat(height)
     }
     
     required init?(coder: NSCoder) {
@@ -89,11 +86,11 @@ extension DetailEventView {
             eventTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             eventTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            eventDescription.topAnchor.constraint(equalTo: eventTitle.topAnchor, constant: 50),
+            eventDescription.topAnchor.constraint(equalTo: eventTitle.bottomAnchor, constant: 15),
             eventDescription.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             eventDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            eventImage.topAnchor.constraint(equalTo: eventDescription.topAnchor, constant: 10),
+            eventImage.topAnchor.constraint(equalTo: eventDescription.bottomAnchor, constant: 10),
             eventImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             eventImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             eventImage.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10),
@@ -104,9 +101,9 @@ extension DetailEventView {
         
         addSubview(scrollView)
         scrollView.addSubview(viewInScroll)
-        addSubview(eventTitle)
-        addSubview(eventDescription)
-        addSubview(eventImage)
+        viewInScroll.addSubview(eventTitle)
+        viewInScroll.addSubview(eventDescription)
+        viewInScroll.addSubview(eventImage)
         
     }
 }
