@@ -12,13 +12,10 @@ class DetailEventView: UIView, UIScrollViewDelegate {
     
     var eventDetail: Event?
     
-    public let viewInScroll: UIView = {
-        var view = UIView()
-        view.backgroundColor = .lightGray
-        return view
-    }()
+    
     public let scrollView: UIScrollView = {
         var scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.alwaysBounceHorizontal = false
         scrollView.showsHorizontalScrollIndicator = false
         return scrollView
@@ -42,6 +39,7 @@ class DetailEventView: UIView, UIScrollViewDelegate {
     public var eventImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.frame = CGRect(x: 0, y: 0, width: 500, height: 400)
         return image
     }()
     
@@ -71,39 +69,33 @@ extension DetailEventView {
     private func setupContrains() {
         NSLayoutConstraint.activate([
             
-            scrollView.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor, constant: 0),
-            scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-            scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
-            scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
-
-            viewInScroll.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0),
-            viewInScroll.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0),
-            viewInScroll.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0),
-            viewInScroll.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            viewInScroll.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            scrollView.topAnchor.constraint(equalTo: self.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
-            eventTitle.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 12),
-            eventTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            eventTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            eventTitle.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 12),
+            eventTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            eventTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             
             eventDescription.topAnchor.constraint(equalTo: eventTitle.bottomAnchor, constant: 15),
-            eventDescription.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            eventDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            eventDescription.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            eventDescription.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             
             eventImage.topAnchor.constraint(equalTo: eventDescription.bottomAnchor, constant: 10),
-            eventImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            eventImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            eventImage.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             eventImage.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10),
+            eventImage.heightAnchor.constraint(equalToConstant: 500),
+            eventImage.widthAnchor.constraint(equalToConstant: 350),
         ])
     }
     
     private func setupBinds() {
         
         addSubview(scrollView)
-        scrollView.addSubview(viewInScroll)
-        viewInScroll.addSubview(eventTitle)
-        viewInScroll.addSubview(eventDescription)
-        viewInScroll.addSubview(eventImage)
+        scrollView.addSubview(eventTitle)
+        scrollView.addSubview(eventDescription)
+        scrollView.addSubview(eventImage)
         
     }
 }
@@ -118,3 +110,34 @@ extension DetailEventView {
         eventImage.downloaded(from: "\(eventDetail?.image ?? "")")
     }
 }
+
+//MARK: - image resize
+
+//extension DetailEventView {
+//
+//
+//    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+//
+//        let size = image.size
+//
+//        let widthRatio = targetSize.width / size.width
+//        let heigthRatio = targetSize.height / size.height
+//
+//
+//        var newSize: CGSize
+//        if(widthRatio > heigthRatio) {
+//            newSize = CGSize(width: size.width * heigthRatio, height: size.height * heigthRatio)
+//        } else {
+//            newSize = CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
+//        }
+//
+//        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+//        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+//        image.draw(in: rect)
+//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//
+//        return newImage!
+//
+//    }
+//}
