@@ -11,7 +11,7 @@ import UIKit
 class CheckInViewModel {
     
     let coordinator: CheckInCoordinator
-    
+    let worker: CheckInWorker
     
     //MARK: - init
     
@@ -23,4 +23,14 @@ class CheckInViewModel {
         func popToPreviousController(){
             coordinator.popToPrevious()
         }
+    
+    //MARK: - GET
+    
+    func postCheckIn(onComplete: @escaping () -> Void) {
+        
+        worker.postCheckInEvent() { (events) in
+            
+            onComplete()
+        }
+    }
 }
