@@ -30,6 +30,7 @@
 		14FDCDB226B88B73001E6A0D /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FDCDB126B88B73001E6A0D /* CheckInViewController.swift */; };
 		14FDCDB526B88B8C001E6A0D /* CheckInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FDCDB426B88B8C001E6A0D /* CheckInViewModel.swift */; };
 		14FDCDB926B93221001E6A0D /* CheckInWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FDCDB826B93221001E6A0D /* CheckInWorker.swift */; };
+		14FDCDBC26B9A121001E6A0D /* CheckInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FDCDBB26B9A121001E6A0D /* CheckInModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		14FDCDB126B88B73001E6A0D /* CheckInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
 		14FDCDB426B88B8C001E6A0D /* CheckInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewModel.swift; sourceTree = "<group>"; };
 		14FDCDB826B93221001E6A0D /* CheckInWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInWorker.swift; sourceTree = "<group>"; };
+		14FDCDBB26B9A121001E6A0D /* CheckInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				14FDCDAB26B88B2D001E6A0D /* CheckInCoordinator.swift */,
 				14FDCDB426B88B8C001E6A0D /* CheckInViewModel.swift */,
 				14FDCDAE26B88B55001E6A0D /* CheckInView.swift */,
+				14FDCDBB26B9A121001E6A0D /* CheckInModel.swift */,
 				14FDCDB826B93221001E6A0D /* CheckInWorker.swift */,
 			);
 			path = CheckIn;
@@ -240,6 +243,7 @@
 				14EBC706268E36FA00235AD8 /* EventsViewController.swift in Sources */,
 				14FDCDAC26B88B2D001E6A0D /* CheckInCoordinator.swift in Sources */,
 				14FDCDB926B93221001E6A0D /* CheckInWorker.swift in Sources */,
+				14FDCDBC26B9A121001E6A0D /* CheckInModel.swift in Sources */,
 				14EFC21026B0D69200A31968 /* DownloadImage.swift in Sources */,
 				14EBC6FC268D311400235AD8 /* REST.swift in Sources */,
 				14FDCDB526B88B8C001E6A0D /* CheckInViewModel.swift in Sources */,
