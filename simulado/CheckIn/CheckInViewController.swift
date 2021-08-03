@@ -1,23 +1,24 @@
 //
-//  DetailEventViewController.swift
+//  CheckInViewController.swift
 //  simulado
 //
-//  Created by Kevin willian Jorge souza on 05/07/21.
+//  Created by Kevin willian Jorge souza on 02/08/21.
 //
 
 import Foundation
 import UIKit
 
-class DetailEventViewController: UIViewController, UIScrollViewDelegate {
+class CheckInViewController: UIViewController {
     
-    var viewModel: DetailEventViewModel
-    var baseView: DetailEventView
+    var viewModel: CheckInViewModel
+    var baseView: CheckInView
+    
     
     //MARK: - init
     
-    required init(viewModel: DetailEventViewModel) {
+    required init(viewModel: CheckInViewModel) {
         self.viewModel = viewModel
-        self.baseView = DetailEventView(with: viewModel.event)
+        self.baseView = CheckInView()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -26,15 +27,14 @@ class DetailEventViewController: UIViewController, UIScrollViewDelegate {
     }
 }
 
+
 //MARK: - life cicle
 
-extension DetailEventViewController {
+extension CheckInViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        baseView.scrollView.delegate = self
-        let height = baseView.scrollView.bounds.height
-        preferredContentSize.height = CGFloat(height)
+        
         navigationController?.navigationBar.tintColor = .white
         navigationItem.title = "Events"
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,
@@ -47,7 +47,7 @@ extension DetailEventViewController {
 
 // MARK: - View Codable
 
-extension DetailEventViewController: ViewCodable {
+extension CheckInViewController: ViewCodable {
     func viewSetup() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow"), style: .plain, target: self, action: #selector(popToPrevious))
     }
@@ -59,7 +59,7 @@ extension DetailEventViewController: ViewCodable {
 }
 
 //MARK: - Actions
-extension DetailEventViewController {
+extension CheckInViewController {
     
     @objc func popToPrevious(){
         navigationController?.popViewController(animated: true)

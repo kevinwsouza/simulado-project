@@ -42,7 +42,19 @@ class DetailEventView: UIView, UIScrollViewDelegate {
         image.frame = CGRect(x: 0, y: 0, width: 500, height: 400)
         return image
     }()
-    
+    public let button: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 4.0)
+        button.layer.shadowOpacity = 0.4
+        button.layer.shadowRadius = 0.0
+        button.layer.masksToBounds = false
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .white
+        button.setTitle("Confirmar no evento", for: .normal)
+        button.layer.cornerRadius = 20
+        return button
+    }()
     // MARK: - init view
     
     init(with event: Event) {
@@ -84,9 +96,13 @@ extension DetailEventView {
             
             eventImage.topAnchor.constraint(equalTo: eventDescription.bottomAnchor, constant: 10),
             eventImage.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            eventImage.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10),
             eventImage.heightAnchor.constraint(equalToConstant: 500),
             eventImage.widthAnchor.constraint(equalToConstant: 350),
+            
+            button.topAnchor.constraint(equalTo: eventImage.bottomAnchor, constant: 10),
+            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            button.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10),
         ])
     }
     
@@ -96,7 +112,7 @@ extension DetailEventView {
         scrollView.addSubview(eventTitle)
         scrollView.addSubview(eventDescription)
         scrollView.addSubview(eventImage)
-        
+        scrollView.addSubview(button)
     }
 }
 
@@ -107,37 +123,13 @@ extension DetailEventView {
     func detailViewInfo() {
         eventTitle.text = "\(eventDetail?.title ?? "")"
         eventDescription.text = "\(eventDetail?.description ?? "")"
-        eventImage.downloaded(from: "\(eventDetail?.image ?? "")")
+        
+        let image : UIImageView? = eventImage
+        
+        if image != nil {
+            eventImage.downloaded(from: "\(eventDetail?.image ?? "")")
+        } else {
+            eventImage.downloaded(from: "https://copycon.com.br/wp-content/uploads/2018/07/o-maior-erro-no-marketing-420x470.png")
+        }
     }
 }
-
-//MARK: - image resize
-
-//extension DetailEventView {
-//
-//
-//    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
-//
-//        let size = image.size
-//
-//        let widthRatio = targetSize.width / size.width
-//        let heigthRatio = targetSize.height / size.height
-//
-//
-//        var newSize: CGSize
-//        if(widthRatio > heigthRatio) {
-//            newSize = CGSize(width: size.width * heigthRatio, height: size.height * heigthRatio)
-//        } else {
-//            newSize = CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
-//        }
-//
-//        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
-//        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-//        image.draw(in: rect)
-//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//
-//        return newImage!
-//
-//    }
-//}
