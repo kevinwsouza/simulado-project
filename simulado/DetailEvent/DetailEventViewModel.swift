@@ -25,4 +25,20 @@ class DetailEventViewModel {
             coordinator.popToPrevious()
         }
 }
+//MARK: - details events
 
+extension DetailEventView {
+    
+    func detailViewInfo() {
+        eventTitle.text = "\(eventDetail?.title ?? "")"
+        eventDescription.text = "\(eventDetail?.description ?? "")"
+        
+        let image : UIImageView? = eventImage
+        
+        if image != nil {
+            eventImage.downloaded(from: "\(eventDetail?.image ?? "")")
+        } else {
+            eventImage.downloaded(from: "https://copycon.com.br/wp-content/uploads/2018/07/o-maior-erro-no-marketing-420x470.png")
+        }
+    }
+}

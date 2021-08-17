@@ -74,7 +74,9 @@ extension EventsViewController {
         setup()
         viewModel.getEvents(onComplete: {
             DispatchQueue.main.async {
+                Spinner.start()
                 self.eventsTableView.reloadData()
+                Spinner.stop()
             }
         })
     }

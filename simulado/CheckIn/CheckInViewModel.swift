@@ -11,7 +11,7 @@ import UIKit
 class CheckInViewModel {
     
     let coordinator: CheckInCoordinator
-    let worker: CheckInWorker
+    //let worker: CheckInWorker
     
     //MARK: - init
     
@@ -26,11 +26,11 @@ class CheckInViewModel {
     
     //MARK: - GET
     
-    func postCheckIn(onComplete: @escaping () -> Void) {
-        
-        worker.postCheckInEvent() { (events) in
-            
-            onComplete()
-        }
-    }
+//    func postCheckIn(onComplete: @escaping () -> Void) {
+//
+//        worker.postCheckInEvent() { (events) in
+//
+//            onComplete()
+//        }
+//    }
 }

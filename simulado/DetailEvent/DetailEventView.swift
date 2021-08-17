@@ -20,7 +20,7 @@ class DetailEventView: UIView, UIScrollViewDelegate {
         scrollView.showsHorizontalScrollIndicator = false
         return scrollView
     }()
-    private var eventTitle: UILabel = {
+    public var eventTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "Rockwell", size: 16)
@@ -28,7 +28,7 @@ class DetailEventView: UIView, UIScrollViewDelegate {
         label.textColor = .white
         return label
     }()
-    private var eventDescription: UILabel = {
+    public var eventDescription: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "Rockwell", size: 14)
@@ -113,23 +113,5 @@ extension DetailEventView {
         scrollView.addSubview(eventDescription)
         scrollView.addSubview(eventImage)
         scrollView.addSubview(button)
-    }
-}
-
-//MARK: - details events
-
-extension DetailEventView {
-    
-    func detailViewInfo() {
-        eventTitle.text = "\(eventDetail?.title ?? "")"
-        eventDescription.text = "\(eventDetail?.description ?? "")"
-        
-        let image : UIImageView? = eventImage
-        
-        if image != nil {
-            eventImage.downloaded(from: "\(eventDetail?.image ?? "")")
-        } else {
-            eventImage.downloaded(from: "https://copycon.com.br/wp-content/uploads/2018/07/o-maior-erro-no-marketing-420x470.png")
-        }
     }
 }
