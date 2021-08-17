@@ -18,14 +18,14 @@ class EventsTableViewCell: UITableViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    private var labelTitle: UILabel = {
+    public var labelTitle: UILabel = {
         var label = UILabel()
         label.textAlignment = .center
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    private var labelPrice: UILabel = {
+    public var labelPrice: UILabel = {
         var label = UILabel()
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -75,8 +75,8 @@ class EventsTableViewCell: UITableViewCell {
             labelDate.bottomAnchor.constraint(equalTo: viewCell.bottomAnchor, constant: -20),
             labelDate.leadingAnchor.constraint(equalTo: labelPrice.trailingAnchor, constant: 100),
 
-            imageViewTrailing.bottomAnchor.constraint(equalTo: viewCell.bottomAnchor, constant: -45),
-            imageViewTrailing.trailingAnchor.constraint(equalTo: viewCell.trailingAnchor, constant: -20),
+            imageViewTrailing.bottomAnchor.constraint(equalTo: viewCell.bottomAnchor, constant: -55),
+            imageViewTrailing.trailingAnchor.constraint(equalTo: viewCell.trailingAnchor, constant: -10),
             
         ])
     }
@@ -88,18 +88,5 @@ class EventsTableViewCell: UITableViewCell {
         viewCell.addSubview(labelDate)
         viewCell.addSubview(labelPrice)
         viewCell.addSubview(imageViewTrailing)
-    }
-}
-
-//MARK: - Create Cells
-
-extension EventsTableViewCell {
-    
-    func createCells(with events: Event) {
-        labelTitle.text = events.title
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/YY"
-        labelDate.text = "\(dateFormatter.string(from: events.date))"
-        labelPrice.text = "\(events.price ?? 0)"
     }
 }

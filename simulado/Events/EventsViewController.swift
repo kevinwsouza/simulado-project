@@ -68,9 +68,9 @@ extension EventsViewController {
         navigationController?.navigationBar.tintColor = .black
         navigationItem.title = "Events"
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,
-                              NSAttributedString.Key.font: UIFont(name: "Rockwell", size: 21)!
+                              NSAttributedString.Key.font: UIFont(name: "Rockwell", size: 21)
         ]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
         setup()
         viewModel.getEvents(onComplete: {
             DispatchQueue.main.async {

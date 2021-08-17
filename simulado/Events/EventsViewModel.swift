@@ -38,4 +38,15 @@ class EventsViewModel {
         coordinator.eventsDetail(event: event)
     }
 }
+//MARK: - Create Cells
 
+extension EventsTableViewCell {
+    
+    func createCells(with events: Event) {
+        labelTitle.text = events.title
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/YY"
+        labelDate.text = "Data: \(dateFormatter.string(from: events.date))"
+        labelPrice.text = "Preço: \(events.price ?? 0)$"
+    }
+}
