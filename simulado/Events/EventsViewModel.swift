@@ -23,11 +23,15 @@ class EventsViewModel {
     
     //MARK: - GET
     
-    func getEvents(onComplete: @escaping () -> Void) {
+    func getEvents(onComplete: @escaping (Bool) -> Void) {
         
         worker.getEvents { (events) in
-            self.eventsList = events
-            onComplete()
+            if let eventsList = events {
+                self.eventsList = eventsList
+                onComplete(true)
+            } else {
+                onComplete(false)
+            }
         }
     }
     
@@ -47,6 +51,6 @@ extension EventsTableViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/YY"
         labelDate.text = "Data: \(dateFormatter.string(from: events.date))"
-        labelPrice.text = "Preço: \(events.price ?? 0)$"
+        labelPrice.text = "Preço: RS \(events.price ?? 0)"
     }
 }

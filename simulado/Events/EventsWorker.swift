@@ -9,7 +9,7 @@ import Foundation
 
 class EventsWorker {
     
-    func getEvents(onComplete: @escaping ([Event]) -> Void) {
+    func getEvents(onComplete: @escaping ([Event]?) -> Void) {
         let endPoint = "events"
         
         Rest.loadAPI(json: nil, header: nil, endPointPath: endPoint, HTTPMethod: .GET) { (data, error) in
@@ -19,10 +19,13 @@ class EventsWorker {
                     decoder.dateDecodingStrategy = .secondsSince1970
                     let events = try decoder.decode([Event].self, from: data)
                     onComplete(events)
+                } else {
+                    onComplete(nil)
                 }
                 
             } catch {
                 print(error)
+                onComplete(nil)
             }
         }
     }

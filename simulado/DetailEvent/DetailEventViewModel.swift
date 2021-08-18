@@ -33,9 +33,7 @@ extension DetailEventView {
         eventTitle.text = "\(eventDetail?.title ?? "")"
         eventDescription.text = "\(eventDetail?.description ?? "")"
         
-        let image : UIImageView? = eventImage
-        
-        if image != nil {
+        if eventDetail?.image != nil {
             eventImage.downloaded(from: "\(eventDetail?.image ?? "")")
         } else {
             eventImage.downloaded(from: "https://copycon.com.br/wp-content/uploads/2018/07/o-maior-erro-no-marketing-420x470.png")

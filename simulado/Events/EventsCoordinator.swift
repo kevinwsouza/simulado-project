@@ -17,7 +17,8 @@ final class EventsCoordinator: Coordinator {
     
     func start() {
         let viewModel = EventsViewModel(coordinator: self)
-        let viewController = EventsViewController(viewModel: viewModel)
+        let refreshView = RefreshView()
+        let viewController = EventsViewController(viewModel: viewModel, refreshView: refreshView)
         
         navigationController.pushViewController(viewController, animated: true)
     }

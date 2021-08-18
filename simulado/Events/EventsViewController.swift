@@ -11,12 +11,13 @@ import UIKit
 class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var viewModel: EventsViewModel
-    
+    var refreshView: RefreshView
     
     //MARK: - init
     
-    required init(viewModel: EventsViewModel) {
+    required init(viewModel: EventsViewModel, refreshView: RefreshView) {
         self.viewModel = viewModel
+        self.refreshView = refreshView
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -63,7 +64,13 @@ extension EventsViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationBarConfig()
         eventsTableViewConfig()
+        setup()
+        getData()
+    }
+   
+    func navigationBarConfig() {
         self.navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.tintColor = .black
         navigationItem.title = "Events"
@@ -71,11 +78,19 @@ extension EventsViewController {
                               NSAttributedString.Key.font: UIFont(name: "Rockwell", size: 21)
         ]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
-        setup()
-        viewModel.getEvents(onComplete: {
+    }
+    
+    func getData() {
+        DispatchQueue.main.async {
+            Spinner.start()
+        }
+        viewModel.getEvents(onComplete: { success in
             DispatchQueue.main.async {
-                Spinner.start()
-                self.eventsTableView.reloadData()
+                if success {
+                    self.eventsTableView.reloadData()
+                } else {
+                    self.view.addSubview(self.refreshView)
+                }
                 Spinner.stop()
             }
         })
@@ -113,4 +128,3 @@ extension EventsViewController {
         eventsTableView.separatorColor = .black
     }
 }
-

@@ -20,4 +20,5 @@ struct Event: Codable {
     var price: Double?
     var title: String?
     var id: String?
+    var error: Int
 }

@@ -13,7 +13,7 @@ open class Spinner {
     internal static var spinner: UIActivityIndicatorView?
     public static var style: UIActivityIndicatorView.Style = .large
     public static var baseBackColor = UIColor(white: 0, alpha: 0.5)
-    public static var baseColor = UIColor.gray
+    public static var baseColor = UIColor.white
     
     public static func start(style: UIActivityIndicatorView.Style = style, backColor: UIColor = baseBackColor, baseColor: UIColor = baseColor) {
         if spinner == nil, let window = UIApplication.shared.keyWindow {

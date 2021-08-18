@@ -39,7 +39,6 @@ class DetailEventView: UIView, UIScrollViewDelegate {
     public var eventImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.frame = CGRect(x: 0, y: 0, width: 500, height: 400)
         return image
     }()
     public let button: UIButton = {
@@ -76,6 +75,7 @@ extension DetailEventView {
     func setup() {
         setupBinds()
         setupContrains()
+        eventImage.backgroundColor = .blue
     }
     
     private func setupContrains() {
@@ -96,7 +96,7 @@ extension DetailEventView {
             
             eventImage.topAnchor.constraint(equalTo: eventDescription.bottomAnchor, constant: 10),
             eventImage.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            eventImage.heightAnchor.constraint(equalToConstant: 500),
+            eventImage.heightAnchor.constraint(equalToConstant: 300),
             eventImage.widthAnchor.constraint(equalToConstant: 350),
             
             button.topAnchor.constraint(equalTo: eventImage.bottomAnchor, constant: 10),

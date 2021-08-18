@@ -26,6 +26,7 @@
 		14EFC1C726A7368300A31968 /* DetailEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EFC1C626A7368300A31968 /* DetailEventView.swift */; };
 		14EFC21026B0D69200A31968 /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EFC20F26B0D69200A31968 /* DownloadImage.swift */; };
 		14F98F3826CC3329007ABF86 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F98F3726CC3329007ABF86 /* Spinner.swift */; };
+		14F98F3C26CCCBE4007ABF86 /* RefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F98F3B26CCCBE4007ABF86 /* RefreshView.swift */; };
 		14FDCDAC26B88B2D001E6A0D /* CheckInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FDCDAB26B88B2D001E6A0D /* CheckInCoordinator.swift */; };
 		14FDCDAF26B88B55001E6A0D /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FDCDAE26B88B55001E6A0D /* CheckInView.swift */; };
 		14FDCDB226B88B73001E6A0D /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FDCDB126B88B73001E6A0D /* CheckInViewController.swift */; };
@@ -56,6 +57,7 @@
 		14EFC1C626A7368300A31968 /* DetailEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventView.swift; sourceTree = "<group>"; };
 		14EFC20F26B0D69200A31968 /* DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 		14F98F3726CC3329007ABF86 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		14F98F3B26CCCBE4007ABF86 /* RefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshView.swift; sourceTree = "<group>"; };
 		14FDCDAB26B88B2D001E6A0D /* CheckInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInCoordinator.swift; sourceTree = "<group>"; };
 		14FDCDAE26B88B55001E6A0D /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
 		14FDCDB126B88B73001E6A0D /* CheckInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				14EBC6F4268C22F400235AD8 /* ViewCodable.swift */,
 				14EFC20F26B0D69200A31968 /* DownloadImage.swift */,
 				14F98F3726CC3329007ABF86 /* Spinner.swift */,
+				14F98F3B26CCCBE4007ABF86 /* RefreshView.swift */,
 			);
 			path = protocols;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				14EBC700268E36E300235AD8 /* EventsTableViewCell.swift in Sources */,
 				14EFC1C726A7368300A31968 /* DetailEventView.swift in Sources */,
 				14EBC6F5268C22F400235AD8 /* ViewCodable.swift in Sources */,
+				14F98F3C26CCCBE4007ABF86 /* RefreshView.swift in Sources */,
 				14F98F3826CC3329007ABF86 /* Spinner.swift in Sources */,
 				14401DD62692CC81009F15B0 /* DetailEventViewController.swift in Sources */,
 				14401DCA26927707009F15B0 /* EventsModel.swift in Sources */,
