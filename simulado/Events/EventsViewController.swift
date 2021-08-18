@@ -69,7 +69,7 @@ extension EventsViewController {
         setup()
         getData()
     }
-   
+    
     func navigationBarConfig() {
         self.navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.tintColor = .black
@@ -89,7 +89,7 @@ extension EventsViewController {
                 if success {
                     self.eventsTableView.reloadData()
                 } else {
-                    self.view.addSubview(self.refreshView)
+                    self.refreshViewConstrainsSetup()
                 }
                 Spinner.stop()
             }
@@ -101,6 +101,7 @@ extension EventsViewController {
 
 extension EventsViewController: ViewCodable {
     func viewSetup() {
+        refreshView.buttonError.addTarget(self, action: #selector(refreshViewError), for: .touchUpInside)
         
     }
     
@@ -127,4 +128,32 @@ extension EventsViewController {
         eventsTableView.backgroundColor = .gray
         eventsTableView.separatorColor = .black
     }
+}
+
+//MARK: - Actions
+extension EventsViewController {
+    
+    @objc func refreshViewError(){
+        
+        self.refreshView.removeFromSuperview()
+        getData()
+    }
+}
+
+//MARK: - Refresh View Constrains Setup
+
+extension EventsViewController {
+    
+    func refreshViewConstrainsSetup() {
+        self.view.addSubview(self.refreshView)
+        
+        self.refreshView.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.refreshView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        self.refreshView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        self.refreshView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        self.refreshView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+
+    }
+    
 }

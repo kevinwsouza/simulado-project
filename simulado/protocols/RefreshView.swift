@@ -33,9 +33,10 @@ open class RefreshView: UIView {
     public var buttonError: UIButton = {
         var button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .white
+        button.backgroundColor = .gray
         button.setTitle("Refresh", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 20
         return button
     }()
     // MARK: - init view
@@ -56,6 +57,7 @@ extension RefreshView {
     func setup() {
         setupBinds()
         setupContrains()
+        imageDownloadError()
     }
     
     private func setupContrains() {
@@ -66,16 +68,19 @@ extension RefreshView {
             blankView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             blankView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
+            
             imageError.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageError.bottomAnchor.constraint(equalTo: labelError.topAnchor, constant: -10),
-            imageError.widthAnchor.constraint(equalToConstant: 400),
-            imageError.heightAnchor.constraint(equalToConstant: 400),
+            imageError.widthAnchor.constraint(equalToConstant: 200),
+            imageError.heightAnchor.constraint(equalToConstant: 200),
             
             labelError.centerYAnchor.constraint(equalTo: centerYAnchor),
             labelError.centerXAnchor.constraint(equalTo: centerXAnchor),
+            labelError.heightAnchor.constraint(equalToConstant: 25),
             
             buttonError.centerXAnchor.constraint(equalTo: centerXAnchor),
             buttonError.topAnchor.constraint(equalTo: labelError.bottomAnchor, constant: 10),
+            buttonError.widthAnchor.constraint(equalToConstant: 100),
             
         ])
     }
