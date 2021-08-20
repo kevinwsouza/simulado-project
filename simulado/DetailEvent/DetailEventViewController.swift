@@ -52,7 +52,7 @@ extension DetailEventViewController: ViewCodable {
         baseView.button.addTarget(self, action: #selector(CheckInEvent), for: .touchUpInside)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow"), style: .plain, target: self, action: #selector(popToPrevious))
-    
+        
     }
     
     func constraintsSetup() {

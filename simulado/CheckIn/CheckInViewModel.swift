@@ -24,7 +24,7 @@ class CheckInViewModel {
             coordinator.popToPrevious()
         }
     
-    //MARK: - GET
+//    MARK: - GET
     
 //    func postCheckIn(onComplete: @escaping () -> Void) {
 //

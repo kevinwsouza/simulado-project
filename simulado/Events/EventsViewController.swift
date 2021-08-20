@@ -85,11 +85,11 @@ extension EventsViewController {
             Spinner.start()
         }
         viewModel.getEvents(onComplete: { success in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
                 if success {
-                    self.eventsTableView.reloadData()
+                    self?.eventsTableView.reloadData()
                 } else {
-                    self.refreshViewConstrainsSetup()
+                    self?.refreshViewConstrainsSetup()
                 }
                 Spinner.stop()
             }
@@ -153,7 +153,7 @@ extension EventsViewController {
         self.refreshView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         self.refreshView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         self.refreshView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-
+        
     }
     
 }

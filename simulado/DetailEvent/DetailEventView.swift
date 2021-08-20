@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 class DetailEventView: UIView, UIScrollViewDelegate {
     
@@ -40,6 +41,11 @@ class DetailEventView: UIView, UIScrollViewDelegate {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
+    }()
+    public var mapLocation: MKMapView = {
+        var map = MKMapView()
+        map.translatesAutoresizingMaskIntoConstraints = false
+        return map
     }()
     public let button: UIButton = {
         let button = UIButton()
@@ -75,7 +81,7 @@ extension DetailEventView {
     func setup() {
         setupBinds()
         setupContrains()
-        eventImage.backgroundColor = .blue
+        mapLocationEvent(with: eventDetail!)
     }
     
     private func setupContrains() {
@@ -86,15 +92,20 @@ extension DetailEventView {
             scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
-            eventTitle.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 12),
+            eventTitle.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20),
             eventTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             eventTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             
-            eventDescription.topAnchor.constraint(equalTo: eventTitle.bottomAnchor, constant: 15),
+            mapLocation.topAnchor.constraint(equalTo: eventTitle.bottomAnchor, constant: 25),
+            mapLocation.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            mapLocation.heightAnchor.constraint(equalToConstant: 300),
+            mapLocation.widthAnchor.constraint(equalToConstant: 350),
+            
+            eventDescription.topAnchor.constraint(equalTo: mapLocation.bottomAnchor, constant: 25),
             eventDescription.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             eventDescription.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             
-            eventImage.topAnchor.constraint(equalTo: eventDescription.bottomAnchor, constant: 10),
+            eventImage.topAnchor.constraint(equalTo: eventDescription.bottomAnchor, constant: 25),
             eventImage.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             eventImage.heightAnchor.constraint(equalToConstant: 300),
             eventImage.widthAnchor.constraint(equalToConstant: 350),
@@ -102,7 +113,7 @@ extension DetailEventView {
             button.topAnchor.constraint(equalTo: eventImage.bottomAnchor, constant: 10),
             button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            button.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10),
+            button.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -30),
         ])
     }
     
@@ -112,6 +123,7 @@ extension DetailEventView {
         scrollView.addSubview(eventTitle)
         scrollView.addSubview(eventDescription)
         scrollView.addSubview(eventImage)
+        scrollView.addSubview(mapLocation)
         scrollView.addSubview(button)
     }
 }

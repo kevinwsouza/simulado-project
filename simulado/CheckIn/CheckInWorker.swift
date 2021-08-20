@@ -19,7 +19,7 @@ class CheckInWorker {
         Rest.loadAPI(json: json, header: nil, endPointPath: endPoint, HTTPMethod: .POST) { (data, error) in
             
             do{
-                //let data = try JSONDecoder().decode(CheckInModel.self, from: data)
+                let data = try JSONDecoder().decode(CheckInModel.self, from: data!)
                 //onComplete(data)
             }
             catch {

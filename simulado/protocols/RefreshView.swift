@@ -68,7 +68,6 @@ extension RefreshView {
             blankView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             blankView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
-            
             imageError.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageError.bottomAnchor.constraint(equalTo: labelError.topAnchor, constant: -10),
             imageError.widthAnchor.constraint(equalToConstant: 200),

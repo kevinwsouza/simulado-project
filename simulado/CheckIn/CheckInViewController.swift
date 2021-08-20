@@ -34,16 +34,23 @@ extension CheckInViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.navigationBar.tintColor = .white
-        navigationItem.title = "Events"
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,
-                              NSAttributedString.Key.font: UIFont(name: "Rockwell", size: 21)!
-        ]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationBarConfig()
         setup()
     }
+    
+    func navigationBarConfig() {
+        self.navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.tintColor = .black
+        navigationItem.title = "Events"
+        
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white,
+                              NSAttributedString.Key.font: UIFont(name: "Rockwell", size: 21)
+        ]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
+    }
 }
+
+
 
 // MARK: - View Codable
 

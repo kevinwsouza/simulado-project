@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 class DetailEventViewModel {
     
@@ -21,9 +22,9 @@ class DetailEventViewModel {
     }
     
     // MARK: - pop previous
-        func popToPreviousController(){
-            coordinator.popToPrevious()
-        }
+    func popToPreviousController(){
+        coordinator.popToPrevious()
+    }
 }
 //MARK: - details events
 
@@ -38,5 +39,20 @@ extension DetailEventView {
         } else {
             eventImage.downloaded(from: "https://copycon.com.br/wp-content/uploads/2018/07/o-maior-erro-no-marketing-420x470.png")
         }
+    }
+}
+
+//MARK:- map config
+
+extension DetailEventView {
+    func mapLocationEvent(with events: Event) {
+        
+        let eventLocation = CLLocationCoordinate2D(latitude: events.latitude ?? -30.0277 , longitude: events.longitude ?? -51.2287)
+        let teste = MKCoordinateRegion(center: eventLocation, latitudinalMeters: 500, longitudinalMeters: 500)
+        let pin = MKPointAnnotation()
+        
+        pin.coordinate = eventLocation
+        mapLocation.addAnnotation(pin)
+        mapLocation.setRegion(teste, animated: true)
     }
 }

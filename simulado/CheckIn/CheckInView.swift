@@ -22,7 +22,7 @@ class CheckInView: UIView {
     private let labelName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Nome do Participantedo Evento"
+        label.text = "Nome do Participante do Evento"
         label.font = UIFont(name: "Rockwell", size: 16)
         label.textAlignment = .center
         label.textColor = .white
@@ -97,9 +97,11 @@ extension CheckInView {
             labelTitle.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 25),
             labelTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             labelTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            labelTitle.heightAnchor.constraint(equalToConstant: 20),
 
-            labelName.topAnchor.constraint(equalTo: labelTitle.bottomAnchor, constant: 100),
+            labelName.topAnchor.constraint(equalTo: labelTitle.bottomAnchor, constant: 70),
             labelName.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            labelName.heightAnchor.constraint(equalToConstant: 20),
             
             textfieldName.topAnchor.constraint(equalTo: labelName.bottomAnchor, constant: 12),
             textfieldName.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
@@ -108,13 +110,14 @@ extension CheckInView {
 
             labelEmail.topAnchor.constraint(equalTo: textfieldName.bottomAnchor, constant: 45),
             labelEmail.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-
+            labelEmail.heightAnchor.constraint(equalToConstant: 20),
+            
             textfieldEmail.topAnchor.constraint(equalTo: labelEmail.bottomAnchor, constant: 20),
             textfieldEmail.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             textfieldEmail.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             textfieldEmail.heightAnchor.constraint(equalToConstant: 30),
             
-            buttonCheckEvent.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
+            buttonCheckEvent.topAnchor.constraint(equalTo: textfieldEmail.bottomAnchor, constant: 80),
             buttonCheckEvent.centerXAnchor.constraint(equalTo: centerXAnchor),
             buttonCheckEvent.widthAnchor.constraint(equalToConstant: 300),
         ])

@@ -74,7 +74,7 @@ class EventsTableViewCell: UITableViewCell {
             
             labelDate.bottomAnchor.constraint(equalTo: viewCell.bottomAnchor, constant: -20),
             labelDate.leadingAnchor.constraint(equalTo: labelPrice.trailingAnchor, constant: 100),
-
+            
             imageViewTrailing.bottomAnchor.constraint(equalTo: viewCell.bottomAnchor, constant: -55),
             imageViewTrailing.trailingAnchor.constraint(equalTo: viewCell.trailingAnchor, constant: -10),
             
